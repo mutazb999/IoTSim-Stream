@@ -1,9 +1,11 @@
 package iotsimstream;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import org.cloudbus.cloudsim.CloudletScheduler;
 import org.cloudbus.cloudsim.Vm;
-import sun.misc.Queue;
+
 
 /**
  *
@@ -16,28 +18,28 @@ public class SVM extends Vm{
     
     public SVM(int id, int userId, double mips, int numberOfPes, int ram, long bw, long size, String vmm, CloudletScheduler cloudletScheduler) {
         super(id, userId, mips, numberOfPes, ram, bw, size, vmm, cloudletScheduler);
-        inputQueue=new Queue<>();
-        outputQueue=new Queue<>();
+        inputQueue=new LinkedList<>();
+        outputQueue=new LinkedList<>();
     }
     
     public void addStreamToInputQueue(Stream s)
     {
-        inputQueue.enqueue(s);
+        inputQueue.add(s);
     }
     
     public Stream getStreamFromInputQueue() throws InterruptedException
     {
-        return inputQueue.dequeue();
+        return inputQueue.remove();
     }
     
     public void addStreamToOutputQueue(Stream s)
     {
-        outputQueue.enqueue(s);
+        outputQueue.add(s);
     }
     
     public Stream getStreamFromOutputQueue() throws InterruptedException
     {
-        return outputQueue.dequeue();
+        return outputQueue.remove();
     }
 
     @Override
@@ -60,7 +62,7 @@ public class SVM extends Vm{
         while(!scheduler.outputQueue.isEmpty())
         {
             try{       
-                Stream s= scheduler.outputQueue.dequeue();
+                Stream s= scheduler.outputQueue.remove();
                 addStreamToOutputQueue(s);
             }catch(Exception ex){ex.printStackTrace();}
         }

@@ -23,7 +23,7 @@ public enum Configuration {
 	static {
             try {
                 //Properties file in resources package
-                FileInputStream propfile = new FileInputStream("src/main/java/resources/simulation.properties");
+                FileInputStream propfile = new FileInputStream("src/main/java/iotsimstream/resources/simulation.properties");
                 properties.load(propfile);
             } catch (IOException ex) {
                 Logger.getLogger(Configuration.class.getName()).log(Level.SEVERE, null, ex);

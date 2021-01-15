@@ -1,5 +1,7 @@
 package iotsimstream;
 
+import iotsimstream.vmOffers.VMOffers;
+import iotsimstream.schedulingPolicies.Policy;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -135,7 +137,7 @@ public class GraphAppEngine extends SimEntity{
             }
         }
         
-        protected static int getCanonicalIDForDataCenter(int canonicalDatacenterID)
+        public static int getCanonicalIDForDataCenter(int canonicalDatacenterID)
         {
             if(canonicalDatacenterID>=0 && datacenterIDsMap.size()>0)
                 return datacenterIDsMap.get(canonicalDatacenterID);
@@ -395,5 +397,10 @@ public class GraphAppEngine extends SimEntity{
             endTime =  CloudSim.clock();
             
             totalProcessedStreams=totalOfProcessedStreams;
+        }
+        
+        public static double getMinDPUnit()
+        {
+            return minDPUnit;
         }
 }

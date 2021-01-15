@@ -2,15 +2,16 @@ package iotsimstream;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.CloudletScheduler;
 import org.cloudbus.cloudsim.Consts;
 import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.ResCloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
-import sun.misc.Queue;
 
 /**
  * CloudletSchedulerSpaceShared implements a policy of scheduling performed by a virtual machine
@@ -52,7 +53,7 @@ public class ServiceCloudletSchedulerSpaceShared extends CloudletScheduler {
 		usedPes = 0;
 		currentCpus = 0;
                 inputQueue=new PriorityQueue<>(); //we do not need to use any comprator since the stream class is implemented as comparable
-                outputQueue=new Queue<>();
+                outputQueue=new LinkedList<>();
                 workingInputStreamMap=new Hashtable<>();
                 startPC=false;
                 waitingStreamsForNextPC=true;
@@ -183,7 +184,7 @@ public class ServiceCloudletSchedulerSpaceShared extends CloudletScheduler {
                                         outStream.setPartitionProcessing(tempStream.getPartitionProcessing());
                                         outStream.setIsPortion(false);
                                         
-                                        outputQueue.enqueue(outStream);
+                                        outputQueue.add(outStream);
 
                                         //For print
                                         String processedStresms="(";

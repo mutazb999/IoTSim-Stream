@@ -51,4 +51,9 @@ public class ProvisionedSVm {
 	public double getCost(){
 		return cost;
 	}
+        
+        public int getDatacenterID()
+        {
+            return datacenterID;
+        }
 }

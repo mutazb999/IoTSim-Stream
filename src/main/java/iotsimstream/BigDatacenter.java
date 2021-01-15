@@ -1,5 +1,6 @@
 package iotsimstream;
 
+import iotsimstream.vmOffers.VMOffers;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Hashtable;
