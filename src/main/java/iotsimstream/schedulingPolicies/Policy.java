@@ -1,5 +1,11 @@
-package iotsimstream;
+package iotsimstream.schedulingPolicies;
 
+import iotsimstream.ExternalSource;
+import iotsimstream.GraphAppEngine;
+import iotsimstream.ProvisionedSVm;
+import iotsimstream.Service;
+import iotsimstream.Stream;
+import iotsimstream.vmOffers.VMOffers;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -23,7 +29,7 @@ public abstract class Policy extends DefaultHandler {
 	
 	protected int ownerId;
 	int serviceCount;
-        final double minDPUnit=GraphAppEngine.minDPUnit; 
+        final double minDPUnit=GraphAppEngine.getMinDPUnit(); 
 	
 	/*Data structures filled during XML parsing*/
 	ArrayList<Stream> originalDataItems;
@@ -131,9 +137,9 @@ public abstract class Policy extends DefaultHandler {
 		Log.printLine("-- Provisioning:");
                 System.out.println("-- Provisioning:");
 		for(ProvisionedSVm vm:provisioningInfo){
-                        System.out.println("-- VM id:" + vm.getVm().getId() + " Datacenter id: " + GraphAppEngine.getCanonicalIDForDataCenter(vm.datacenterID) + " RAM:"+vm.getVm().getRam()+
+                        System.out.println("-- VM id:" + vm.getVm().getId() + " Datacenter id: " + GraphAppEngine.getCanonicalIDForDataCenter(vm.getDatacenterID()) + " RAM:"+vm.getVm().getRam()+
 					" start:"+vm.getStartTime()+" end:"+vm.getEndTime());
-                        Log.printLine("-- VM id:" + vm.getVm().getId() + " Datacenter id: " + GraphAppEngine.getCanonicalIDForDataCenter(vm.datacenterID) + " RAM:"+vm.getVm().getRam()+
+                        Log.printLine("-- VM id:" + vm.getVm().getId() + " Datacenter id: " + GraphAppEngine.getCanonicalIDForDataCenter(vm.getDatacenterID()) + " RAM:"+vm.getVm().getRam()+
 					" start:"+vm.getStartTime()+" end:"+vm.getEndTime());
 		}
 		
