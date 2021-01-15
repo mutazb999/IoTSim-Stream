@@ -1,4 +1,4 @@
-package iotsimstream;
+package iotsimstream.vmOffers;
 
 import java.util.HashMap;
 import java.util.Hashtable;
