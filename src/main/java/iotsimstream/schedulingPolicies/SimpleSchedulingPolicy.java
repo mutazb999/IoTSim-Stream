@@ -1,5 +1,12 @@
-package iotsimstream;
+package iotsimstream.schedulingPolicies;
 
+import iotsimstream.ProvisionedSVm;
+import iotsimstream.SVM;
+import iotsimstream.Service;
+import iotsimstream.ServiceCloudlet;
+import iotsimstream.ServiceCloudletSchedulerSpaceShared;
+import iotsimstream.Stream;
+import iotsimstream.vmOffers.VMOffers;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -145,9 +152,9 @@ public class SimpleSchedulingPolicy extends Policy {
                     
                     if(selectedVMs.isEmpty()) // in case of no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing minimum stream unit
                     {
-                        JOptionPane.showMessageDialog(null, "StreamSim will be terminated because provisioning VM(s) for Service " + serviceID + " is not possible with available VM offer(s)\n" +"Reason: there is no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing one stream unit (i.e. " + (minDPUnit * service.getDataProcessingReq())+ " MIPS)");
-                        Log.print("StreamSim is terminated because provisioning VM(s) for Service " + serviceID + " is not possible with available VM offer(s)\nReason: " +"there is no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing one stream unit (i.e. " + (minDPUnit * service.getDataProcessingReq())+ " MIPS)");
-                        System.out.println("StreamSim is terminated because provisioning VM(s) for Service " + serviceID + " is not possible with available VM offer(s)\nReason: " +"there is no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing one stream unit (i.e. " + (minDPUnit * service.getDataProcessingReq())+ " MIPS)");
+                        JOptionPane.showMessageDialog(null, "IoTSim-Stream will be terminated because provisioning VM(s) for Service " + serviceID + " is not possible with available VM offer(s)\n" +"Reason: there is no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing one stream unit (i.e. " + (minDPUnit * service.getDataProcessingReq())+ " MIPS)");
+                        Log.print("IoTSim-Stream is terminated because provisioning VM(s) for Service " + serviceID + " is not possible with available VM offer(s)\nReason: " +"there is no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing one stream unit (i.e. " + (minDPUnit * service.getDataProcessingReq())+ " MIPS)");
+                        System.out.println("IoTSim-Stream is terminated because provisioning VM(s) for Service " + serviceID + " is not possible with available VM offer(s)\nReason: " +"there is no VM offer in selected cloud-based datacenter that achieves the required MIPS for processing one stream unit (i.e. " + (minDPUnit * service.getDataProcessingReq())+ " MIPS)");
                         System.exit(0);
                     }
                         
