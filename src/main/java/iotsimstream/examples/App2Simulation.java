@@ -1,11 +1,11 @@
-package examples;
+package iotsimstream.examples;
 
 
 import iotsimstream.BigDatacenter;
 import iotsimstream.GraphAppEngine;
-import iotsimstream.Policy;
+import iotsimstream.schedulingPolicies.Policy;
 import iotsimstream.Properties;
-import iotsimstream.VMOffers;
+import iotsimstream.vmOffers.VMOffers;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
