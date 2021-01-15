@@ -1,5 +1,6 @@
-package iotsimstream;
+package iotsimstream.vmOffers;
 
+import iotsimstream.Properties;
 import java.util.Hashtable;
 import java.util.LinkedHashMap;
 
